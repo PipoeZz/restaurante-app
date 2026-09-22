@@ -1,29 +1,60 @@
 import { useState, useEffect } from 'react';
-import { obtenerMenu } from './data/menu';
-import PlatoCard from './components/PlatoCard';
+
+import { pedirDatos } from './data/menu';
+import Filtro from './components/Filtro';
+import MenuCarta from './components/MenuCarta';
+import Carrito from './components/Carrito';
 
 function App() {
-  const [platos, setPlatos] = useState([]);
+  const [menu, setMenu] = useState([]);
   const [cargando, setCargando] = useState(true);
+  
+  const [carrito, setCarrito] = useState([]);
+  const [categoria, setCategoria] = useState("Todos");
 
   useEffect(() => {
-    obtenerMenu().then((datos) => {
-      setPlatos(datos);
+    pedirDatos().then(function (datos) {
+      setMenu(datos);
       setCargando(false);
     });
   }, []);
 
-  return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold text-center mb-8">Menú del Restaurante</h1>
+  function agregar(plato) {
+    setCarrito([...carrito, plato]);
+  }
 
-      {cargando ? (
-        <p className="text-center text-xl font-semibold text-gray-500">Cargando la carta...</p>
+  function vaciar() {
+    setCarrito([]);
+  }
+
+  let filtrados = menu;
+  if (categoria !== "Todos") {
+    filtrados = menu.filter(plato => plato.categoria === categoria);
+  }
+
+  return (
+    <div className="p-8 bg-gray-100 min-h-screen font-sans">
+      <h1 className="text-3xl font-bold mb-6 text-center">Menú del Restaurante</h1>
+
+      {cargando === true ? (
+        <p className="text-center font-bold text-xl">Cargando base de datos...</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {platos.map((plato) => (
-            <PlatoCard key={plato.id} plato={plato} />
-          ))}
+        <div className="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto">
+          
+          <div className="md:w-2/3">
+            <Filtro cambiarFiltro={setCategoria} />
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {filtrados.map((plato, indice) => (
+                <MenuCarta key={indice} plato={plato} agregar={agregar} />
+              ))}
+            </div>
+          </div>
+
+          <div className="md:w-1/3">
+            <Carrito carrito={carrito} vaciar={vaciar} />
+          </div>
+
         </div>
       )}
     </div>
