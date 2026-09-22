@@ -1,16 +1,39 @@
-# React + Vite
+# Evaluación 1 - Sistema de Restaurante
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto web desarrollado para la evaluación de desarrollo web. Consiste en la interfaz para un restaurante donde se puede ver la carta de productos, filtrar por categorías, buscar por nombre y gestionar un pedido mediante un carrito de compras interactivo.
 
-Currently, two official plugins are available:
+## Integrantes
+- Felipe Morales
+- Francisco Inzunza
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías usadas
+- React
+- Vite
+- Tailwind CSS
 
-## React Compiler
+## Funcionalidades del proyecto
+1. **Carga de datos:** Usamos una promesa con `setTimeout` en el archivo `menu.js` para simular que los datos vienen desde una API externa con tiempo de espera.
+2. **Catálogo dinámico:** La lista de platos se muestra automáticamente usando `.map()` a partir de los datos cargados.
+3. **Filtros y buscador:**
+   - Botones para filtrar según la categoría (Platos, Extras, Bebidas, etc).
+   - Un buscador por texto que filtra los platos por nombre en tiempo real.
+4. **Detalle de productos:** Cada tarjeta muestra directamente la descripción e ingredientes de cada plato.
+5. **Carrito y pedidos:**
+   - Permite agregar platos a una lista de compras.
+   - Suma los precios y muestra el total en vivo.
+   - Incluye botones para vaciar el carrito o confirmar el pedido (muestra una alerta simulando el envío).
+6. **Diseño responsivo:** La vista se adapta tanto a pantallas de celular como de computador usando Tailwind.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Componentes del sistema
+- `App.jsx`: Componente principal que almacena los estados (menú, carrito, filtros) y maneja las funciones generales.
+- `Buscador.jsx`: Input de texto para buscar productos por nombre.
+- `Filtro.jsx`: Botones para cambiar la categoría seleccionada.
+- `MenuCarta.jsx`: Tarjeta individual de cada plato con su información y botón de añadir.
+- `Carrito.jsx`: Muestra los productos añadidos, el total acumulado y los botones de acción.
 
-## Expanding the ESLint configuration
+## Cómo ejecutar el proyecto
+1. Clonar el repositorio o descargar los archivos.
+2. Abrir la terminal en la carpeta del proyecto y ejecutar:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   npm install
+   npm run dev
