@@ -1,7 +1,7 @@
 function Carrito({ carrito, vaciar }) {
   let total = 0;
   for (let i = 0; i < carrito.length; i++) {
-    total = total + carrito[i].precio;
+    total = total + (carrito[i].precio*carrito[i].cantidad);
   }
 
   function confirmarPedido() {
@@ -20,8 +20,8 @@ function Carrito({ carrito, vaciar }) {
       <ul className="mb-4">
         {carrito.map((item, index) => (
           <li key={index} className="border-b py-2 flex justify-between">
-            <span>{item.nombre}</span>
-            <span>${item.precio}</span>
+            <span>{item.nombre} ({item.cantidad})</span>
+            <span>${item.precio* item.cantidad}</span>
           </li>
         ))}
       </ul>

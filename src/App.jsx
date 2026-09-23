@@ -22,7 +22,20 @@ function App() {
   }, []);
 
   function agregar(plato) {
-    setCarrito([...carrito, plato]);
+    let copiaCarrito = [...carrito];
+    let encontrado = false;
+
+    for (let i = 0; i < copiaCarrito.length; i++){
+      if (copiaCarrito[i].nombre === plato.nombre){
+        copiaCarrito[i].cantidad = copiaCarrito[i].cantidad + 1;
+        encontrado = true;
+      }
+    }
+    if (encontrado === false){
+      let platoNuevo = {...plato, cantidad: 1};
+      copiaCarrito.push(platoNuevo)
+    }
+    setCarrito(copiaCarrito);
   }
 
   function vaciar() {
