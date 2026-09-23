@@ -22,20 +22,7 @@ function App() {
   }, []);
 
   function agregar(plato) {
-    let copiaCarrito = [...carrito];
-    let encontrado = false;
-
-    for (let i = 0; i < copiaCarrito.length; i++){
-      if (copiaCarrito[i].nombre === plato.nombre){
-        copiaCarrito[i].cantidad = copiaCarrito[i].cantidad + 1;
-        encontrado = true;
-      }
-    }
-    if (encontrado === false){
-      let platoNuevo = {...plato, cantidad: 1};
-      copiaCarrito.push(platoNuevo)
-    }
-    setCarrito(copiaCarrito);
+    setCarrito([...carrito, plato]);
   }
 
   function vaciar() {
@@ -56,11 +43,23 @@ function App() {
   }
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen font-sans">
-      <h1 className="text-3xl font-bold mb-6 text-center">Menú del Restaurante</h1>
+    <div className="p-4 md:p-8 bg-gray-100 min-h-screen font-sans">
+      <div 
+        className="mb-8 rounded-xl shadow-md h-64 flex flex-col justify-center items-center text-center bg-cover bg-center max-w-5xl mx-auto"
+        style={{ backgroundImage: 'url("/img/portada.avif")' }}
+      >
+        <div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-2">
+            La Picada del Panxo con los Polis
+          </h1>
+          <p className="text-gray-200 text-base sm:text-lg font-medium">
+            Explora nuestros platos, bebidas y promociones
+          </p>
+        </div>
+      </div>
 
       {cargando === true ? (
-        <p className="text-center font-bold text-xl">Cargando base de datos...</p>
+        <p className="text-center font-bold text-xl">Cargando productos...</p>
       ) : (
         <div className="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto">
           
