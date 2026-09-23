@@ -2,6 +2,7 @@ function MenuCarta({ plato, agregar }) {
   return (
     <div className="border p-4 bg-white rounded shadow-sm flex flex-col justify-between">
       <div>
+        <img src={plato.imagen} alt={plato.nombre} className="w-full h-40 object-cover rounded-md mb-4" />
         <h3 className="font-bold text-lg">{plato.nombre}</h3>
         <p className="text-green-600 font-bold mb-2">${plato.precio}</p>
         
