@@ -87,9 +87,13 @@ function App() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Componente 3: Tarjeta de cada plato */}
-              {filtrados.map((plato, indice) => (
+              {filtrados.length === 0 ? (
+              <p className="col-span-2 text-center text-gray-500 font-bold py-8">No se encontraron platos con esa búsqueda :(</p>
+            ) : (
+              filtrados.map((plato, indice) => (
                 <MenuCarta key={indice} plato={plato} agregar={agregar} />
-              ))}
+              ))
+            )}
             </div>
           </div>
 
