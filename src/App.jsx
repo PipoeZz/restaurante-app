@@ -79,16 +79,13 @@ function App() {
         <div className="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto">
           
           <div className="md:w-2/3">
-            {/* Componente 1: Buscador de texto */}
             <Buscador busqueda={busqueda} cambiarBusqueda={setBusqueda} />
 
-            {/* Componente 2: Filtro por categorías */}
-            <Filtro cambiarFiltro={setCategoria} />
+            <Filtro cambiarFiltro={setCategoria} categoriaActual={categoria} />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Componente 3: Tarjeta de cada plato */}
               {filtrados.length === 0 ? (
-              <p className="col-span-2 text-center text-gray-500 font-bold py-8">No se encontraron platos con esa búsqueda :(</p>
+              <p className="col-span-2 text-center text-gray-500 font-bold py-8">No se encontraron productos con esa búsqueda, asegúrate de estar en la categoría correcta</p>
             ) : (
               filtrados.map((plato, indice) => (
                 <MenuCarta key={indice} plato={plato} agregar={agregar} />
@@ -98,7 +95,6 @@ function App() {
           </div>
 
           <div className="md:w-1/3">
-            {/* Componente 4: Carrito de compras */}
             <Carrito carrito={carrito} vaciar={vaciar} />
           </div>
 
