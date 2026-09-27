@@ -38,7 +38,12 @@ function Carrito({ carrito, vaciar }) {
 
         <button 
           onClick={vaciar} 
-          className="bg-red-500 text-white p-2 w-full rounded hover:bg-red-600 transition"
+          disabled={carrito.length === 0}
+          className={`p-2 w-full rounded transition ${
+            carrito.length === 0 
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed" 
+              : "bg-red-500 text-white hover:bg-red-600"
+          }`}
         >
           Vaciar carrito
         </button>
