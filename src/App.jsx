@@ -5,6 +5,7 @@ import Filtro from './components/Filtro';
 import Buscador from './components/Buscador';
 import MenuCarta from './components/MenuCarta';
 import Carrito from './components/Carrito';
+import Footer from './components/Footer';
 
 function App() {
   const [menu, setMenu] = useState([]);
@@ -100,6 +101,7 @@ function App() {
 
         </div>
       )}
+      <Footer />
     </div>
   );
 }
