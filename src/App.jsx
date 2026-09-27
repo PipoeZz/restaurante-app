@@ -73,7 +73,7 @@ function App() {
             La Picada de la doble F
           </h1>
           <p className="text-gray-200 text-base sm:text-lg font-medium">
-            Explora nuestros platos, bebidas y promociones
+            La mejor picada de Temuco
           </p>
         </div>
       </div>
