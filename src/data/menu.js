@@ -10,8 +10,8 @@ export const productos = [
   {id: 9, nombre: "Agua Mineral", precio: 1000, categoria: "Bebidas", detalle: "Botella de 500ml.", imagen: "img/agua.jpg" },
 ];
 
-export function pedirDatos() {
-  return new Promise(function (resolve) {
+export function pedirDatos() { 
+  return new Promise(function (resolve) { 
     setTimeout(function () {
       resolve(productos);
     }, 1000);

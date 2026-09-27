@@ -1,7 +1,9 @@
 function Carrito({ carrito, vaciar }) {
   let total = 0;
+  let totalItems =0 ;
   for (let i = 0; i < carrito.length; i++) {
     total = total + (carrito[i].precio*carrito[i].cantidad);
+    totalItems = totalItems + carrito[i].cantidad;
   }
 
   function confirmarPedido() {
@@ -15,7 +17,7 @@ function Carrito({ carrito, vaciar }) {
 
   return (
     <div className="border p-4 bg-white rounded shadow-sm sticky top-6">
-      <h2 className="font-bold text-xl mb-4">Carrito ({carrito.length})</h2>
+      <h2 className="font-bold text-xl mb-4">Carrito ({totalItems})</h2>
       
       <ul className="mb-4">
         {carrito.map((item, index) => (
