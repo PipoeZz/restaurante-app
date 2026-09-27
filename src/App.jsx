@@ -45,6 +45,10 @@ function App() {
     setCarrito([]);
   }
 
+  function eliminar(nombrePlato) {
+    let nuevoCarrito = carrito.filter(item => item.nombre !== nombrePlato);
+    setCarrito(nuevoCarrito);
+  }
  
   let filtrados = menu;
   
@@ -96,7 +100,7 @@ function App() {
           </div>
 
           <div className="md:w-1/3">
-            <Carrito carrito={carrito} vaciar={vaciar} />
+            <Carrito carrito={carrito} vaciar={vaciar} eliminar={eliminar} />
           </div>
 
         </div>

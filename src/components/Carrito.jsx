@@ -1,6 +1,7 @@
-function Carrito({ carrito, vaciar }) {
+function Carrito({ carrito, vaciar, eliminar }) {
   let total = 0;
   let totalItems =0 ;
+
   for (let i = 0; i < carrito.length; i++) {
     total = total + (carrito[i].precio*carrito[i].cantidad);
     totalItems = totalItems + carrito[i].cantidad;
@@ -21,9 +22,18 @@ function Carrito({ carrito, vaciar }) {
       
       <ul className="mb-4">
         {carrito.map((item, index) => (
-          <li key={index} className="border-b py-2 flex justify-between">
+          <li key={index} className="border-b py-2 flex justify-between items-center">
             <span>{item.nombre} ({item.cantidad})</span>
-            <span>${(item.precio* item.cantidad).toLocaleString('es-CL')}</span>
+            <div className="flex items-center gap-2">
+              <span>${(item.precio * item.cantidad).toLocaleString('es-CL')}</span>
+              <button 
+                onClick={() => eliminar(item.nombre)}
+                className="text-red-500 hover:text-red-700 text-xs font-bold px-1" 
+                title="Eliminar producto"
+              >
+                x
+              </button>
+            </div>
           </li>
         ))}
       </ul>
