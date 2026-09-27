@@ -23,12 +23,12 @@ function Carrito({ carrito, vaciar }) {
         {carrito.map((item, index) => (
           <li key={index} className="border-b py-2 flex justify-between">
             <span>{item.nombre} ({item.cantidad})</span>
-            <span>${item.precio* item.cantidad}</span>
+            <span>${(item.precio* item.cantidad).toLocaleString('es-CL')}</span>
           </li>
         ))}
       </ul>
       
-      <h3 className="font-bold text-lg mb-4">Total: ${total}</h3>
+      <h3 className="font-bold text-lg mb-4">Total: ${total.toLocaleString('es-CL')}</h3>
       
       <div className="space-y-2">
         <button 

@@ -4,7 +4,7 @@ function MenuCarta({ plato, agregar }) {
 
       <div className="flex-1 pr-4">
         <h3 className="font-bold text-lg">{plato.nombre}</h3>
-        <p className="font-bold mb-2">${plato.precio}</p>
+        <p className="font-bold mb-2">${plato.precio.toLocaleString('es-CL')}</p>
         <p className="text-sm text-gray-700 mb-3">{plato.detalle}</p>
         
        <button 
