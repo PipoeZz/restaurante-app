@@ -66,7 +66,7 @@ function App() {
       >
         <div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-2">
-            La Picada del Panxo con los Polis
+            La Picada de la doble F
           </h1>
           <p className="text-gray-200 text-base sm:text-lg font-medium">
             Explora nuestros platos, bebidas y promociones
