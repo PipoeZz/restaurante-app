@@ -1,39 +1,26 @@
-# Evaluación 1 - Sistema de Restaurante
+# La Picada de la doble F
 
-Proyecto web desarrollado para la evaluación de desarrollo web. Consiste en la interfaz para un restaurante donde se puede ver la carta de productos, filtrar por categorías, buscar por nombre y gestionar un pedido mediante un carrito de compras interactivo.
+Proyecto de evaluación desarrollado por Felipe Morales y Francisco Inzunza.
 
-## Integrantes
-- Felipe Morales
-- Francisco Inzunza
+## Estructura y Tecnologías
+- React + Vite:Configuración estructurada a partir de `vite.config.js` y `package.json`.
+- Tailwind CSS:Configurado y procesado a través de `tailwind.config.js` y `postcss.config.js`.
 
-## Tecnologías usadas
-- React
-- Vite
-- Tailwind CSS
+## Componentes
+El código fuente de la interfaz se divide en componentes modulares ubicados dentro de la carpeta `src/components/`:
+- Buscador: Implementado en el archivo `Buscador.jsx` para la búsqueda de platos.
+- Carrito: Gestionado en `Carrito.jsx` para agrupar pedidos y calcular el total.
+- Filtro: Definido en `Filtro.jsx` para la navegación por categorías.
+- Footer: Pie de página estructurado en `Footer.jsx`.
+- MenuCarta: Diseño de las tarjetas de productos en `MenuCarta.jsx`.
 
-## Funcionalidades del proyecto
-1. **Carga de datos:** Usamos una promesa con `setTimeout` en el archivo `menu.js` para simular que los datos vienen desde una API externa con tiempo de espera.
-2. **Catálogo dinámico:** La lista de platos se muestra automáticamente usando `.map()` a partir de los datos cargados.
-3. **Filtros y buscador:**
-   - Botones para filtrar según la categoría (Platos, Extras, Bebidas, etc).
-   - Un buscador por texto que filtra los platos por nombre en tiempo real.
-4. **Detalle de productos:** Cada tarjeta muestra directamente la descripción e ingredientes de cada plato.
-5. **Carrito y pedidos:**
-   - Permite agregar platos a una lista de compras.
-   - Suma los precios y muestra el total en vivo.
-   - Incluye botones para vaciar el carrito o confirmar el pedido (muestra una alerta simulando el envío).
-6. **Diseño responsivo:** La vista se adapta tanto a pantallas de celular como de computador usando Tailwind.
+## Datos y Multimedia
+- La base de datos local de los platos y promociones se carga desde `src/data/menu.js`.
+- Las imágenes de la aplicación se alojan en el directorio `public/img/`. Esto incluye las fotografías de los productos (`agua.jpg`, `churrasco.jfif`, `completo.webp`, `empanadas-queso.jpg`, `hamburguesa-clasica.jfif`, `latas-bebida.webp`, `papas-fritas.webp`, `promo-completo.webp`, `promo-hamburguesa.jpg`) y el banner principal (`portada.avif`).
+- Los íconos y logotipos base se ubican en `public/favicon.svg` y `public/icons.svg`.
 
-## Componentes del sistema
-- `App.jsx`: Componente principal que almacena los estados (menú, carrito, filtros) y maneja las funciones generales.
-- `Buscador.jsx`: Input de texto para buscar productos por nombre.
-- `Filtro.jsx`: Botones para cambiar la categoría seleccionada.
-- `MenuCarta.jsx`: Tarjeta individual de cada plato con su información y botón de añadir.
-- `Carrito.jsx`: Muestra los productos añadidos, el total acumulado y los botones de acción.
-
-## Cómo ejecutar el proyecto
-1. Clonar el repositorio o descargar los archivos.
-2. Abrir la terminal en la carpeta del proyecto y ejecutar:
-
-   npm install
-   npm run dev
+## Instrucciones de Ejecución
+1. Instala las dependencias del proyecto:
+   `npm install`
+2. Inicia el servidor de desarrollo local:
+   `npm run dev`
